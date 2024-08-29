@@ -36,9 +36,9 @@ function NavBar() {
         <header>
             <SignedOut>
             <SignInButton>
-            <button className='p-2  bg-red-500 text-white
-            px-4 rounded-full 
-            hover:scale-105 transition-all'>Sign in</button>
+            <button className='p-2 text-center  bg-red-500 text-white
+            px-4 py-2 rounded-full 
+            hover:scale-105 text-[15px] transition-all'>Sign in</button>
             </SignInButton>
             </SignedOut>
             <SignedIn>
