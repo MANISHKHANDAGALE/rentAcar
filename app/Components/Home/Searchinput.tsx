@@ -2,7 +2,7 @@ import React from "react";
 
 function Searchinput() {
   return (
-    <div className="mt-5">
+    <div className="mt-5 items-center">
         <h2 className="text-center text-[20px] text-gray-400">
           Let`s Search What you need
         </h2>

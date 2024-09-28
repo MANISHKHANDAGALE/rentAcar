@@ -2,10 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 function Hero() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 ml-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 w-[100%]">
       <div>
       <h2 className='text-[50px] md:text-[70px] 
-            font-bold '>Premium Car <span className='text-blue-600'>Rental</span> in Your Area</h2>
+            font-bold  '>Premium Car <span className='text-blue-600'>Rental</span> in Your Area</h2>
             <h2 className='text-[20px] text-gray-500 pr-20 mt-5'>Book the selected car effortlessly, Pay for driving only,
                 Book the Car Now
             </h2>
@@ -18,7 +18,7 @@ function Hero() {
             alt='hero'
             width={400}
             height={500}
-            className='w-full object-cover align-middle ml-60'
+            className='w-full object-cover align-middle md:ml-80'
             />
       </div>
     </div>
