@@ -5,7 +5,7 @@ import Form from "./Form";
 function BookingModal({ car }: any) {
   return (
     <div>
-      <div className="modal-box mr-[100px] mb-[250px] w-[80%] md:w-[100%]">
+      <div className="modal-box mr-[100px] mb-[1px] w-[80%] md:w-[100%]">
         <div className="border-b-[1px] pb-2 ">
           <h3 className=" text-[30px] font-light text-gray-400">
             Rent A Car Now!
@@ -16,13 +16,10 @@ function BookingModal({ car }: any) {
           <CarCard car={car} />
           </div>
           <div>
-          <Form/>
+          <Form car={car}/>
           </div>
         </div>
-        <form method="dialog" className="modal-box w-11/12 max-w-5xl">
-          {/* if there is a button in form, it will close the modal */}
-          <button className="btn">Close</button>
-        </form>
+        
       </div>
     </div>
   );

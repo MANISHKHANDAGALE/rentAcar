@@ -29,14 +29,34 @@ export const getCarsList = async() => {
  return result;
 
 }
-export const getStoreLocations=async()=>{
-  const query=gql`
-  query storeLocation {
-    storesLocations {
-      address
+export const getStoreLocations = async () => {
+  const query = gql`query storeLocation {
+  storeLocations {
+    address
+  }
+}`
+  const result = await request("https://ap-south-1.cdn.hygraph.com/content/cm0f43ns900cd07ulyp18pru4/master",query);
+  return result;
+}
+export const createBooking=async(formValue:any)=>{
+  const mutationQuery=gql`
+  mutation MyMutation {
+    createBooking(
+      data:  {userName: "`+formValue.userName+`", 
+      pickUpDate: "`+formValue.pickUpDate+`", 
+      pickUpTime: "`+formValue.pickUpTime+`", 
+      dropOffDate: "`+formValue.dropOffDate+`", 
+      dropOffTime: "`+formValue.dropOffTime+`", 
+      contactNumber: "`+formValue.contactNumber+`", 
+      carId: {connect: 
+        {id: "`+formValue.carId+`"}}}
+    ) {
+      id
     }
-  }  
+  }
+  
   `
-  const result=await request(MASTER_URL,query);
+
+  const result=await request(MASTER_URL,mutationQuery);
   return result;
 }

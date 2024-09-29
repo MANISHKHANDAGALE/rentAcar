@@ -8,10 +8,21 @@ import { getCarsList } from "@/Services/Index";
 import { useEffect } from "react";
 import { useState } from "react";
 import CarsList from "./Components/Home/CarsList";
+import Toast from "./Components/Home/Toast";
+import {BookCreatedFlagContext} from "./Context/BookCreatedFlagContext"
+
 
 export default function Home() {
   const [carsList,setCarsList]=useState<any>([])
   const [carsOrgList,setCarsOrgList]=useState<any>([])
+  const [showToastMsg,setShowToastMsg]=useState<boolean>(false);
+  useEffect(()=>{
+if(showToastMsg){
+  setTimeout(()=>{
+setShowToastMsg(false)
+  },3000)
+}
+  },[showToastMsg])
   
  useEffect(()=>{
    getCarList_();
@@ -45,11 +56,17 @@ export default function Home() {
   
   return (
    <div className="p-5 sm:px-10 md:px-20">
+
+<BookCreatedFlagContext.Provider value={{showToastMsg,setShowToastMsg}}>
+
     <Hero/>
     <Searchinput/>
     <CarsFliterOptions ordercarlist ={(e:any)=> orderCarList(e)}
      carsList={carsOrgList} setCarbrands = { (e:any) => filtercarlist(e)}/>
     <CarsList carsList={carsList} />
+    {showToastMsg?<Toast/>:null}
+</BookCreatedFlagContext.Provider>
+
    </div>
   );
 }
